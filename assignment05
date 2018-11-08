@@ -1,0 +1,45 @@
+import cv2
+
+original = cv2.imread('cau.jpg', cv2.IMREAD_COLOR)
+gray = cv2.imread('cau.jpg',cv2.IMREAD_GRAYSCALE)
+
+cv2.imshow('Original', original)
+cv2.imshow('Gray', gray)
+
+cv2.waitKey(0)
+cv2.destroyAllWindows()
+
+
+
+## define placeholder for inputs to network
+#xs = tf.placeholder(tf.float32, [None, 36])  # 原始数据的维度：16
+#ys = tf.placeholder(tf.float32, [None, 1])  # 输出数据为维度：1
+#
+#keep_prob = tf.placeholder(tf.float32)  # dropout的比例
+#
+#x_image = tf.reshape(xs, [-1, 6, 6, 1])  # 原始数据16变成二维图片4*4
+### conv1 layer ##第一卷积层
+#W_conv1 = weight_variable([3, 3, 1, 32])  # patch 2x2, in size 1, out size 32,每个像素变成32个像素，就是变厚的过程
+#b_conv1 = bias_variable([32])
+#h_conv1 = tf.nn.relu(conv2d(x_image, W_conv1) + b_conv1)  # output size 2x2x32，长宽不变，高度为32的三维图像
+## h_pool1 = max_pool_2x2(h_conv1)     # output size 2x2x32 长宽缩小一倍
+##h_drop1 = tf.nn.dropout(h_conv1, keep_prob)  # 把数组中扔掉比例为keep_prob的元素
+#
+### conv2 layer ##第二卷积层
+#W_conv2 = weight_variable([3, 3, 32, 64])  # patch 2x2, in size 32, out size 64
+#b_conv2 = bias_variable([64])
+#h_conv2 = tf.nn.relu(conv2d(h_conv1, W_conv2) + b_conv2)  # 输入第一层的处理结果 输出shape 4*4*64
+##h_drop2 = tf.nn.dropout(h_conv2, keep_prob)  # 把数组中扔掉比例为keep_prob的元素
+#
+### conv3 layer ##第3卷积层
+#W_conv3 = weight_variable([3, 3, 64, 128])  # patch 2x2, in size 32, out size 64
+#b_conv3 = bias_variable([128])
+#h_conv3 = tf.nn.relu(conv2d(h_conv2, W_conv3) + b_conv3)  # 输入第2层的处理结果 输出shape 4*4*64
+##h_drop3 = tf.nn.dropout(h_conv3, keep_prob)  # 把数组中扔掉比例为keep_prob的元素
+#
+### conv4 layer ##第4卷积层
+#W_conv4 = weight_variable([3, 3, 128,256])  # patch 2x2, in size 32, out size 64
+#b_conv4 = bias_variable([256])
+#h_conv4 = tf.nn.relu(conv2d(h_conv3, W_conv4) + b_conv4)  # 输入第2层的处理结果 输出shape 4*4*64
+##h_drop4 = tf.nn.dropout(h_conv4, keep_prob)  # 把数组中扔掉比例为keep_prob的元素
+#
